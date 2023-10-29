@@ -3,7 +3,9 @@ package com.ifsp.tpeproject.service;
 import com.ifsp.tpeproject.entity.Pessoa;
 import com.ifsp.tpeproject.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PessoaServiceImpl implements PessoaService{
 
   @Autowired

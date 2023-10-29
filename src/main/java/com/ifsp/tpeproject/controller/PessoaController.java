@@ -3,6 +3,8 @@ package com.ifsp.tpeproject.controller;
 import com.ifsp.tpeproject.entity.Pessoa;
 import com.ifsp.tpeproject.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class PessoaController {
 
   @Autowired
-  PessoaService pessoaService;
+  private PessoaService pessoaService;
 
   @PostMapping
-  public Pessoa createPessoa(@RequestBody Pessoa pessoa) {
-    return pessoaService.createPessoa(pessoa);
+  public ResponseEntity<Pessoa> createPessoa(@RequestBody Pessoa pessoa) {
+    return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.createPessoa(pessoa));
   }
 }
